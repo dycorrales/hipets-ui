@@ -1,27 +1,32 @@
-# HiPetsUi
+![alt text](https://github.com/dycorrales/hipets-api/blob/master/HiPetsBanner.jpg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+================================
 
-## Development server
+What is the HiPets Ui Project?
+The HiPets is a open-source project written in Angular 6
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The goal of this project is implement the most common used technologies and share with the technical community the best way to develop great applications with Angular
 
-## Code scaffolding
+##Technologies implemented:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 6
 
-## Build
+##Disclaimer: This is a sample application
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+NOT intended to be a definitive solution
 
-## Running unit tests
+Beware to use in production way
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Maybe you don't need a lot of implementations that is included, try avoid the over engineering
 
-## Running end-to-end tests
+Pull-Requests are welcome!
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+##Why HiPets? 
 
-## Further help
+This application manages the adoptions of animals of a supposed veterinary clinic (HiPets Association Araraquara), where people who want to adopt an animal can access the application and make an application for adoption.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This is an application created with the intention of applying the latest programming techniques and architectures of Angular. It exposes via npm, the necessary ui to manage the data of the system. This project must be used in conjunction with hi-pets-api, which is available in this url:
+
+https://github.com/dycorrales/hipets-api.git
+
+===================== The HiPets Project was developed by Dariel Yamil Corrales Cuenca under the MIT license.
