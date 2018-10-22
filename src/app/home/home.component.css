@@ -1,0 +1,64 @@
+.content {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.mat-card {
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+mat-card {
+    transition: none !important;
+    box-shadow: none !important;
+    max-width: 1000px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 500px;
+}
+
+.centerBlock {
+    width: 800px;
+    border-radius: 5px;
+    padding: 10px;
+    height: 50px;
+    position: absolute;
+    margin-top: -25px;
+    margin-left: -400px;
+    top: 50%;
+    left: 50%;
+}
+
+button {
+    padding: 3px 40px;
+    min-width: 100px;
+    line-height: 28px;
+    
+    position: relative;
+    text-align: center;
+}
+
+.left {
+    font-size: 20px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .right {
+    font-size: 20px;
+    position: absolute;
+    left: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+  }

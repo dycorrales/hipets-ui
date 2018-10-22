@@ -1,0 +1,70 @@
+<div class="page-wrap">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <main role="main" class="inner cover">
+    <div class="col-sm-12 text-center title">
+        <h3>Pedidos de adoção</h3>
+              </div>
+    <div class="col-sm-12">
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por nome do animal ou nome do cliente">
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="animalName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nome do animal </mat-header-cell>
+            <mat-cell *matCellDef="let adoptionRequest"> {{adoptionRequest.animalName}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="animalType">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de animal </mat-header-cell>
+              <mat-cell *matCellDef="let adoptionRequest"> {{adoptionRequest.animalType}} </mat-cell>
+            </ng-container>
+          <ng-container matColumnDef="animalBreed">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Raça do animal </mat-header-cell>
+              <mat-cell *matCellDef="let adoptionRequest"> {{adoptionRequest.animalBreed}} </mat-cell>
+            </ng-container>            
+            <ng-container matColumnDef="animalPictureUrl">
+                <mat-header-cell *matHeaderCellDef> Foto do animal </mat-header-cell>
+                <mat-cell class="center" *matCellDef="let adoptionRequest">
+                    <img class="img-rounded" src={{adoptionRequest.animalPictureUrl}}/>
+                </mat-cell>
+              </ng-container>
+          <ng-container matColumnDef="adopterName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nome do cliente </mat-header-cell>
+            <mat-cell *matCellDef="let adoptionRequest"> {{adoptionRequest.adopterName}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="adopterPhoneNumber">
+            <mat-header-cell  class="center" *matHeaderCellDef mat-sort-header> Telefone </mat-header-cell>
+            <mat-cell  class="center" *matCellDef="let adoptionRequest"> {{adoptionRequest.adopterPhoneNumber}} </mat-cell>
+          </ng-container>          
+          <ng-container matColumnDef="adopterEmail">
+              <mat-header-cell  class="center" *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+              <mat-cell  class="center" *matCellDef="let adoptionRequest"> {{adoptionRequest.adopterEmail}} </mat-cell>
+            </ng-container>        
+            <ng-container matColumnDef="statusOfRequest">
+                <mat-header-cell class="center" *matHeaderCellDef mat-sort-header> Situação </mat-header-cell>(adoptionRequest.adoptionStatus)" 
+                <mat-cell class="center" *matCellDef="let adoptionRequest"><mat-chip-list class="mat-chip-list-stacked"><mat-chip [color]="statusOfRequestGetColor(adoptionRequest.adoptionStatus)" [selected]="adoptionRequest.adoptionStatus === 'Solicitado' ? 'false' : 'true'" class="text-center"> {{adoptionRequest.adoptionStatus}} </mat-chip></mat-chip-list></mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="rejectedDescription">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Observação </mat-header-cell>
+                  <mat-cell *matCellDef="let adoptionRequest"> {{adoptionRequest.adoptionObservation}} </mat-cell>
+                </ng-container>
+                <ng-container *ngIf="isAdmin()" matColumnDef="buttons">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell class="center" *matCellDef="let adoptionRequest">
+                        <button *ngIf="adoptionRequest.adoptionStatus !== 'Aprovado'" title="Atualizar pedido" mat-button class="btn btn-outline-secondary btn-sm" (click)="changeStatus(adoptionRequest)">
+                            <i class="material-icons left">insert_comment</i>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator (page)="pageEvent = handlePage($event)" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </main>
+</div>
+</div>

@@ -1,0 +1,33 @@
+<h1 mat-dialog-title class="text-center">Cadastro do animal</h1>
+<div mat-dialog-content [formGroup]="registerAnimalForm" class="text-center">
+  <p>Insira os dados do animal</p>
+    <mat-form-field class="form-group dialogField">
+      <input class="form-control" type="text" placeholder="Nome do animal" matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="form-group dialogField">
+        <input class="form-control" type="text" placeholder="Raça do animal" matInput formControlName="breed">
+      </mat-form-field>
+      <mat-form-field class="form-group dialogField">
+          <input class="form-control" type="number" placeholder="Idade do animal" matInput formControlName="age">
+        </mat-form-field>
+        <mat-form-field class="form-group dialogField">
+            <textarea class="form-control" type="text" placeholder="Comportamento do animal" matInput formControlName="behavior"></textarea>
+          </mat-form-field>
+          <mat-form-field class="form-group dialogField">
+              <mat-select class="form-control" placeholder="Selecione uma opção" formControlName="animalType">
+                <mat-option value="Gato">Gato</mat-option>
+                <mat-option value="Cachorro">Cachorro</mat-option>
+                <mat-option value="Peixe">Peixe</mat-option>
+                <mat-option value="Cavalho">Cavalho</mat-option>
+                <mat-option value="Pássaro">Pássaro</mat-option>
+                <mat-option value="Coelho">Coelho</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-group dialogField">
+                <input class="form-control" type="text" placeholder="Url foto do animal" matInput formControlName="pictureUrl">
+              </mat-form-field>
+</div>
+<div mat-dialog-actions aling="end">
+  <button class="btn btn-outline-secondary btn-sm" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="btn btn-outline-success btn-sm" mat-button (click)="save()" cdkFocusInitial>Salvar</button>
+</div>

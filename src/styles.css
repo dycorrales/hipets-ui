@@ -1,0 +1,127 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -30px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 30px; 
+}
+.site-footer {
+  background-color: #222d32;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@-webkit-keyframes spin {
+    0% {
+      transform: rotate(0)
+    }
+  
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+  
+  @-moz-keyframes spin {
+    0% {
+      -moz-transform: rotate(0)
+    }
+  
+    100% {
+      -moz-transform: rotate(360deg)
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0)
+    }
+  
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+  
+  .spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1003;
+    background: #000000;
+    overflow: hidden
+  }
+  
+  .spinner div:first-child {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    box-shadow: 0 3px 3px 0 rgba(255,56,106,1);
+    transform: translate3d(0,0,0);
+    animation: spin 2s linear infinite
+  }
+  
+  .spinner div:first-child:after, .spinner div:first-child:before {
+    content: '';
+    position: absolute;
+    border-radius: 50%
+  }
+  
+  .spinner div:first-child:before {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    box-shadow: 0 3px 3px 0 rgb(255, 228, 32);
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite
+  }
+  
+  .spinner div:first-child:after {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    box-shadow: 0 3px 3px 0 rgba(61, 175, 255,1);
+    animation: spin 1.5s linear infinite
+  }
+
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }

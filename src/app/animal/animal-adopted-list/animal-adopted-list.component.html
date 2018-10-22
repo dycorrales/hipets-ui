@@ -1,0 +1,54 @@
+<div class="page-wrap">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main role="main" class="inner cover">
+      <div class="col-sm-12 text-center title">
+        <h3>Animais adotados</h3>
+      </div>
+      <div class="col-sm-12">
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por nome do animal ou nome do cliente">
+          </mat-form-field>
+        </div>
+
+        <div class="example-container mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="animalName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Nome do animal </mat-header-cell>
+              <mat-cell *matCellDef="let adoptedAnimal"> {{adoptedAnimal.animalName}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="animalType">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de animal </mat-header-cell>
+                <mat-cell *matCellDef="let adoptedAnimal"> {{adoptedAnimal.animalType}} </mat-cell>
+              </ng-container>
+            <ng-container matColumnDef="animalBreed">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Raça do animal </mat-header-cell>
+              <mat-cell *matCellDef="let adoptedAnimal"> {{adoptedAnimal.animalBreed}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="adopterName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Nome do cliente </mat-header-cell>
+              <mat-cell *matCellDef="let adoptedAnimal"> {{adoptedAnimal.adopterName}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="animalPictureUrl">
+                <mat-header-cell *matHeaderCellDef> Foto do animal </mat-header-cell>
+                <mat-cell class="center" *matCellDef="let adoptedAnimal">
+                    <img class="img-rounded" src={{adoptedAnimal.animalPictureUrl}}/>
+                </mat-cell>
+              </ng-container>
+            <ng-container matColumnDef="adopterPhoneNumber">
+              <mat-header-cell class="center" *matHeaderCellDef mat-sort-header> Telefone </mat-header-cell>
+              <mat-cell class="center" *matCellDef="let adoptedAnimal"> {{adoptedAnimal.adopterPhoneNumber}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="adopterEmail">
+              <mat-header-cell class="center" *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+              <mat-cell class="center" *matCellDef="let adoptedAnimal"> {{adoptedAnimal.adopterEmail}} </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<h1 mat-dialog-title class="text-center">Login</h1>
+<div mat-dialog-content [formGroup]="loginForm" class="text-center">
+  <p>Insira seu email e senha</p>
+    <mat-form-field class="form-group dialogField">
+      <input class="form-control" type="email" placeholder="Email" matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field class="form-group dialogField">
+        <input class="form-control" type="password" placeholder="Senha" matInput formControlName="password">
+    </mat-form-field>
+  <p>Fique tranquilo, se seu usuário não existe sera criado automáticamente</p>
+</div>
+<div mat-dialog-actions aling="end">
+  <button class="btn btn-outline-secondary btn-sm" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="btn btn-outline-success btn-sm" mat-button (click)="save()" cdkFocusInitial>Entrar</button>
+</div>

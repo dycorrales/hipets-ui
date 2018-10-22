@@ -1,0 +1,18 @@
+<h1 mat-dialog-title class="text-center">Status de adoção</h1>
+<div mat-dialog-content class="text-center">
+  <p>Selecione o status e escreva um comentário</p>
+  <mat-form-field class="dialogField">
+    <textarea placeholder="Observação" matInput matInput [(ngModel)]="data.adoptionObservation"></textarea>
+  </mat-form-field>
+  <mat-form-field class="dialogField">
+      <mat-select placeholder="Selecione uma opção" [(value)]="data.adoptionStatus">
+        <mat-option value="Em progresso">Em progresso</mat-option>
+        <mat-option value="Aprovado">Aprovado</mat-option>
+        <mat-option value="Rejeitado">Rejeitado</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions aling="end">
+  <button class="btn btn-outline-secondary btn-sm" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="btn btn-outline-success btn-sm" mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+</div>

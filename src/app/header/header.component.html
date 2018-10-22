@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a [routerLink]="['']" class="navbar-brand">Hi!! Pets</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse show" id="navbarsExampleDefault" [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+      <li *ngIf="isLogged()" class="nav-item">
+        <a class="nav-link" [routerLink]="['/animal-foradoption-list']">Animais em adoção</a>
+      </li>
+      <li *ngIf="isLogged()" class="nav-item">
+        <a class="nav-link" [routerLink]="['/animal-adopted-list']">Animais adotados</a>
+      </li>
+      <li *ngIf="isLogged()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/adoption-request-list']">Pedidos de adoção</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right login">
+        <li *ngIf="isLogged()" class="nav-item">            
+            <a title="Click para fazer logout" class="nav-link" (click)="logout()">
+              <span class="nav-text"> {{loginService.user?.name}}</span>
+              <i class="material-icons md-light">power_settings_new</i>
+            </a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right login">
+        <li *ngIf="!isLogged()" class="nav-item">            
+            <a class="nav-link" (click)="login()">
+              Entrar
+            </a>
+        </li>
+    </ul>
+  </div>
+</nav>

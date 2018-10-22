@@ -1,0 +1,61 @@
+<div class="page-wrap">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main role="main" class="inner cover">
+    <div class="col-sm-12 text-center title">
+      <h3>Animais em adoção</h3>
+    </div>
+    <div *ngIf="isAdmin()" class="col-sm-12 text-center title">
+        <button class="btn btn-outline-success btn-sm" mat-button (click)="registerAnimal()" cdkFocusInitial>Novo animal</button>
+    </div>
+    <div class="col-sm-12">
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por nome ou raça">
+        </mat-form-field>
+      </div>
+
+      <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+            <mat-cell *matCellDef="let animal"> {{animal.name}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+            <mat-cell *matCellDef="let animal"> {{animal.animalType}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="behavior">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Comportamento </mat-header-cell>
+            <mat-cell *matCellDef="let animal"> {{animal.behavior}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="breed">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Raça </mat-header-cell>
+            <mat-cell *matCellDef="let animal"> {{animal.breed}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="age">
+            <mat-header-cell class="center" *matHeaderCellDef mat-sort-header> Idade </mat-header-cell>
+            <mat-cell class="center" *matCellDef="let animal"> {{animal.age}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="pictureUrl">
+            <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
+            <mat-cell class="center" *matCellDef="let animal">
+                <img class="img-rounded" src={{animal.pictureUrl}}/>
+            </mat-cell>
+          </ng-container>
+          <ng-container *ngIf="!isAdmin()" matColumnDef="buttons">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell class="center" *matCellDef="let animal">
+              <button title="Solicitar adoção" mat-button class="btn btn-outline-secondary btn-sm" (click)="requestAdoption(animal)">
+                <i class="material-icons left">pets</i>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </main>
+</div>
+</div>

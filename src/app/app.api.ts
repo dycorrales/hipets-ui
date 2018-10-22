@@ -1,0 +1,1 @@
+export const HI_PETS_API = "https://localhost:44342/hipets/api/v1";
